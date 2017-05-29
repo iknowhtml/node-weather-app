@@ -6,6 +6,11 @@ request(
     json: true,
   },
   (error, response, body) => {
-    console.log(JSON.stringify(body, undefined, 2));
+    const result = body.results[0];
+    const {lat, lng} = result.geometry.location;
+    console.log(`Address: ${result.formatted_address}`);
+    console.log(`Latitude: ${lat}`);
+    console.log(`Latitude: ${lng}`);
+
   }
 );
