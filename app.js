@@ -11,8 +11,7 @@ const argv = yargs
     },
   })
   .help()
-  .alias('help', 'h')
-  .argv;
+  .alias('help', 'h').argv;
 
 const encodedAddress = encodeURI(argv.address);
 request(
@@ -21,10 +20,16 @@ request(
     json: true,
   },
   (error, response, body) => {
-    const result = body.results[0];
-    const { lat, lng } = result.geometry.location;
-    console.log(`Address: ${result.formatted_address}`);
-    console.log(`Latitude: ${lat}`);
-    console.log(`Latitude: ${lng}`);
+    if (error) {
+      console.log('Unable to connect to Google servers.');
+    } else if (body.status === 'ZERO_RESULTS') {
+      console.log('unable to find that address.');
+    } else if (body.status === 'OK') {
+      const result = body.results[0];
+      const { lat, lng } = result.geometry.location;
+      console.log(`Address: ${result.formatted_address}`);
+      console.log(`Latitude: ${lat}`);
+      console.log(`Latitude: ${lng}`);
+    }
   }
 );
