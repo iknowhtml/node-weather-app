@@ -1,13 +1,13 @@
 const getUser = (id, callback) => {
   const user = {
     id,
-    name: 'Vikram'
+    name: 'Vikram',
   };
   setTimeout(() => {
-  callback(user);
-}, 3000);
-}
+    callback(user);
+  }, 3000);
+};
 
-getUser(31, (user) => {
+getUser(31, user => {
   console.log(user);
-})
+});

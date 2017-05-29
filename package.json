@@ -14,6 +14,7 @@
     "eslint-plugin-node": "^4.2.2"
   },
   "dependencies": {
-    "request": "^2.81.0"
+    "request": "^2.81.0",
+    "yargs": "^8.0.1"
   }
 }
