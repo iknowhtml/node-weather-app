@@ -3,7 +3,7 @@
   "description": "A simple Node weather application",
   "version": "1.0.0",
   "engines": {
-    "node" : ">=6.0.0"
+    "node": ">=6.0.0"
   },
   "main": "app.js",
   "repository": "https://github.com/iknowhtml/weather-app.git",
@@ -12,5 +12,8 @@
   "devDependencies": {
     "eslint": "^3.19.0",
     "eslint-plugin-node": "^4.2.2"
+  },
+  "dependencies": {
+    "request": "^2.81.0"
   }
 }
