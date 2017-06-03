@@ -13,11 +13,13 @@ const geocodeAddress = (address, callback) => {
       } else if (body.status === 'ZERO_RESULTS') {
         console.log('unable to find that address.');
       } else if (body.status === 'OK') {
-        const result = body.results[0];
-        const { lat, lng } = result.geometry.location;
-
+        const {
+          formatted_address,
+          geometry: { location: { lat, lng } },
+        } = body.results[0];
+        
         callback(undefined, {
-          address: result.formatted_address,
+          address: formatted_address,
           latitude: lat,
           longitude: lng,
         });
