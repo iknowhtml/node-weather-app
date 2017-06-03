@@ -2,7 +2,7 @@ const request = require('request');
 
 const geoCodeAddress = address => {
   return new Promise((resolve, reject) => {
-    const encodedAddress = encodeURI(address);
+    const encodedAddress = encodeURIComponent(address);
     request(
       {
         url: `http://maps.googleapis.com/maps/api/geocode/json?address=${encodedAddress}`,
