@@ -10,10 +10,11 @@ const argv = yargs
       string: true,
     },
   })
+  .default('a', '13107 meadow hall court herndon')
   .help()
   .alias('help', 'h').argv;
 
-const encodedAddress = encodeURIComponent(argv.address);
+const encodedAddress = encodeURIComponent(argv.address || '13107 meadow hall court herndon');
 const geoCodeUrl = `http://maps.googleapis.com/maps/api/geocode/json?address=${encodedAddress}`;
 
 axios
